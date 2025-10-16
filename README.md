@@ -18,6 +18,8 @@ cd cowrie-honeypot
 ```
 
 ### 2. Start the honeypot
+The honeypot listens on port 2222 instead of the default SSH port 22. This keeps it separate from the system’s real SSH service and ensures that all activity is contained to the local machine.
+It only becomes public if you manually change your Docker run command to -p 0.0.0.0:2222:2222,
 ```bash
 mkdir -p logs data
 docker run -d   --name cowrie-honeypot   -p 2222:2222   -e COWRIE_TELNET_ENABLED=false   -e COWRIE_SSH_LISTEN_PORT=2222   --mount type=bind,src="$PWD/logs",dst=/cowrie/cowrie-git/var/log/cowrie   --mount type=bind,src="$PWD/data",dst=/cowrie/cowrie-git/var/lib/cowrie   cowrie/cowrie
@@ -46,7 +48,7 @@ This produces a file named `SUMMARY.md` that lists the top attacker IPs, usernam
 
 ## Example Output
 
-Excerpt from `SUMMARY.md`:
+Example excerpt from `SUMMARY.md`:
 
 | Metric | Count |
 | --- | --- |
@@ -73,8 +75,6 @@ Excerpt from `SUMMARY.md`:
 | Containerization | Docker |
 | Honeypot | Cowrie |
 | Language | Python |
-| Reporting | Markdown |
-| Operating system | macOS or Linux |
 
 ---
 
@@ -84,20 +84,3 @@ Common credentials included `root:123456` and `admin:password`.
 The Python scripts automate log parsing and produce readable Markdown summaries suitable for documentation or reports.
 
 ---
-
-## Resume Description
-Deployed a Dockerized SSH honeypot using Cowrie to collect and analyze brute-force attacks.  
-Built Python scripts to summarize attacker IPs, credentials, and activity trends in Markdown format.
-
----
-
-## Safety Notice
-This project is for educational and research use.  
-All activity should remain inside the Docker container.  
-Do not expose this setup to a production network or systems containing sensitive data.
-
----
-
-## License
-MIT License © 2025  
-Author: Fionn O’Dochartaigh
