@@ -1,4 +1,5 @@
-# Cowrie Honeypot
+# Cowrie Honeypot<img width="839" height="557" alt="Cowrie-log" src="https://github.com/user-attachments/assets/a9e593ca-73f2-4a30-852e-6478f70eb235" />
+
 
 ## Overview
 This project sets up a lightweight SSH honeypot using Cowrie inside a Docker container.  
@@ -84,3 +85,5 @@ Common credentials included `root:123456` and `admin:password`.
 The Python scripts automate log parsing and produce readable Markdown summaries suitable for documentation or reports.
 
 ---
+<img width="839" height="557" alt="Cowrie-log" src="https://github.com/user-attachments/assets/a9e593ca-73f2-4a30-852e-6478f70eb235" />
+
